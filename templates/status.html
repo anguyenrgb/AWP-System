@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+  
+<div class="container">
+  
+  <h1>Status Change</h1>
+  
+  <form action="/statuspost" class="form-group" method = "POST">
+    
+    <div class="form-group">
+       <label for='RepairID'>Repair ID:</label>
+       <input type="text" class="form-control" name="RepairID" placeholder="Enter Repair ID #">
+    </div>
+
+    <div class="form-group">
+      <label for='statuschange'>Status Change To:</label>
+      <select class="form-control" name='statuschange'>
+        <option value="AWP">Awaiting Parts</option>
+        <option value="IP">In Progress</option>
+        <option value="Repaired">Repaired</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+</body>
+{% endblock %}

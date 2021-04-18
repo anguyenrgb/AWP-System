@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+  
+<div class = "container">
+<div class = "jumbotron">
+  <h1>Dashboard</h1>
+  <h2>{{DateOrdered}}</h2>
+
+  <div class='col'>
+    <div class="card">
+      <div class="card-header">Total Awaiting Parts</div>
+        <div class="card-body">
+        
+        {{awpfetch}}
+        
+      </div>
+    </div>
+  </div>
+
+    <br>
+
+  <div class='col'>
+    <div class="card">
+      <div class="card-header">Total In Progress</div>
+        <div class="card-body">
+        
+          {{ipfetch}}
+
+      </div>
+    </div>
+  </div>
+
+    <br>
+
+  <div class='col'>
+    <div class="card">
+      <div class="card-header">Total Repaired</div>
+        <div class="card-body">
+        
+          {{repairedfetch}}
+          
+    </div>
+  </div>
+    
+  
+  
+
+  
+  </div>
+</div>
+</body>
+{% endblock %}

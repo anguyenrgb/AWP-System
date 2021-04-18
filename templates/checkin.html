@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+  
+<div class="container">
+
+<h1>Unit Check In</h1>
+
+  <form action="/awpin" method = "POST">
+    <div class="form-group">
+       <label for='Service Order'>SO#</label>
+       <input type="text" class="form-control" name="ServiceOrder" placeholder="Enter Service Order">
+    </div>
+    <div class="form-group">
+      
+      <label for='PartType'>Part Type:</label>
+      <select class="form-control" name='PartType'>
+          <option selected value="0">Choose Part Type</option>
+          <option value="MEM">RAM</option>
+          <option value="MB">Motherboard</option>
+          <option value="Case">Case</option>
+          <option value="PSU">PSU</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+       <label for='SKU'>Part SKU</label>
+       <input type="int" class="form-control" name="SKU" placeholder="Enter Part SKU">
+    </div>
+
+    <div class="form-group">
+       <label for='Model'>Model</label>
+       <input type="int" class="form-control" name="Model" placeholder="Enter Model">
+    </div>
+
+    <div class="form-group">
+      <label for='Cart'>Cart</label>
+      <input type="int" class="form-control" name="Cart" placeholder="Enter Cart #">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+</body>
+{% endblock %}

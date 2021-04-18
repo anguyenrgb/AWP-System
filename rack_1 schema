@@ -1,0 +1,11 @@
+CREATE TABLE `rack_1` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `ServiceOrder` varchar(20) DEFAULT 'NONE',
+  `SKU` varchar(20) DEFAULT 'NONE',
+  `Model` varchar(20) DEFAULT 'NONE',
+  `Cart` int(10) DEFAULT 0,
+  `DateOrdered` varchar(20) DEFAULT 'NONE',
+  `PartType` varchar(20) DEFAULT NULL,
+  `Status` varchar(20) DEFAULT 'AWP',
+  PRIMARY KEY (`id`)
+)
