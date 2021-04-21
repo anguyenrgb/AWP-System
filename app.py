@@ -48,7 +48,6 @@ def login():
         mysql.connection.commit()
         cursor.close()
         return render_template('checkin.html')
-        flash('You were successfully logged in')
 
 @app.route("/awp", methods=['GET'])
 def awptable():
