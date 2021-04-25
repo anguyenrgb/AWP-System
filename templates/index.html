@@ -7,23 +7,24 @@
   <h1>Dashboard</h1>
   <h2>{{DateOrdered}}</h2>
 
-  <div class='col'>
-    <div class="card">
+<div class ="row">
+  <div class='col-sm-4'>
+    <div class="card" style="width: 12rem;">
       <div class="card-header">Total Awaiting Parts</div>
         <div class="card-body">
-        
-        {{awpfetch}}
-        
+          <div class="card-text" style="font-size: 40px;">
+            {{awpfetch}}
+          </div>
       </div>
     </div>
   </div>
 
     <br>
 
-  <div class='col'>
-    <div class="card">
+ <div class='col-sm-4'>
+    <div class="card" style="width: 12rem;">
       <div class="card-header">Total In Progress</div>
-        <div class="card-body">
+        <div class="card-body" style="font-size: 40px;">
         
           {{ipfetch}}
 
@@ -33,16 +34,16 @@
 
     <br>
 
-  <div class='col'>
-    <div class="card">
-      <div class="card-header">Total Repaired</div>
-        <div class="card-body">
+  <div class='col-sm-4'>
+    <div class="card" style="width: 12rem;">
+      <div class="card-header">Total Repaired Units</div>
+        <div class="card-body" style="font-size: 40px;">
         
           {{repairedfetch}}
           
     </div>
   </div>
-    
+</div>   
   
   
 
