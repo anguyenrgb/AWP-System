@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 from datetime import date
 today = date.today()
 app = Flask(__name__)
+app.secret_key = 'my unobvious secret key'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -47,6 +48,7 @@ def login():
         cursor.execute('''INSERT INTO rack_1 (ServiceOrder, SKU, Model, Cart, DateOrdered, PartType) VALUES(%s,%s,%s,%s,%s,%s)''',(ServiceOrder,SKU,Model,Cart,DateOrdered,PartType))
         mysql.connection.commit()
         cursor.close()
+        flash(ServiceOrder)
         return render_template('checkin.html')
 
 @app.route("/awp", methods=['GET'])
