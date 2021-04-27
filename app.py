@@ -102,10 +102,10 @@ def repairedtable():
 
 @app.route("/repairedpost", methods=['POST'])
 def repairedpost():
-
+    DateOrdered = today.strftime("%m/%d/%y")
     change_to_repaired = request.form['change_to_repaired']
     cursor = mysql.connection.cursor()
-    cursor.execute("UPDATE rack_1 SET Status = 'Repaired' WHERE id = %s",[change_to_repaired])
+    cursor.execute("UPDATE rack_1 SET Status = 'Repaired', Checkout= %s WHERE id = %s",[DateOrdered,change_to_repaired])
     mysql.connection.commit()
     cursor.close()
     return redirect(request.referrer)
