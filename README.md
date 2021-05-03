@@ -26,7 +26,11 @@ These screens shows the user the inventory that is either "awaiting parts", "in 
 
 ![awp.png](https://github.com/anguyenrgb/AWP-System/blob/6369bcfe335df7dcd34a86200522ce2768729683/AWP%20Screenshot/awp.png)
 
+##
+
 ![ip.png](https://github.com/anguyenrgb/AWP-System/blob/6369bcfe335df7dcd34a86200522ce2768729683/AWP%20Screenshot/ip.png)
+
+##
 
 ![repaired.png](https://github.com/anguyenrgb/AWP-System/blob/6369bcfe335df7dcd34a86200522ce2768729683/AWP%20Screenshot/repaired.png)
 
