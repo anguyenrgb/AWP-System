@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
+
+<div class="container">
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }} status changed to Repaired!
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+     {% endif %}
+  {% endwith %}
+  </div>
+
 <body>
 
 <div class="container col-10">
@@ -9,7 +25,7 @@
     <form action="/repairedpost" class="form-inline" method = "POST">
         <div class="form-group">
            <label for='change_to_repaired'>Change Status to Repaired:</label>
-           <input type="text" class="form-control" name="change_to_repaired" placeholder="Enter Repair ID #">
+           <input type="text" class="form-control" name="change_to_repaired" placeholder="Enter Repair ID #" autofocus>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -21,6 +37,7 @@
       <select class="form-control" id='searchtype'>
         <option value="0">Repair ID</option>
         <option value="1">Service Order</option>
+        <option value="8">Date Ordered</option>
       </select>
     </div>
 
@@ -29,15 +46,17 @@
     <table id="MasterTable" table class="table table-sm table-hover table-striped table-bordered">
     <thead class="thead-dark">
       <tr>
-          <th>id</th>
-          <th>Service Order</th>
-          <th>SKU</th>
-          <th>Item Notes</th>
-          <th>Cart</th>
-          <th>Date Ordered</th>
-          <th>Part Type</th>
-          <th>Status</th>
-          <th>Checkout Date</th>
+        <th>id</th>
+        <th>Service Order</th>
+        <th>UnitSKU</th>
+        <th>Part Type</th>
+        <th>Remarks</th>
+        <th>Part SKU</th>
+        <th>Model</th>
+        <th>Cart</th>
+        <th>Date Ordered</th>
+        <th>Status</th>
+        <th>Checkout Date</th>
      </tr>
     </thead>
       <tbody>

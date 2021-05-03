@@ -17,15 +17,15 @@ def index():
     DateOrdered = today.strftime("%m/%d/%y")
 
     awpfetch = mysql.connection.cursor()
-    awpfetch.execute("select count(id) from rack_1 where status = 'AWP';")
+    awpfetch.execute("select count(id) from inventory where status = 'AWP';")
     awpfetch = awpfetch.fetchone()
     
     ipfetch = mysql.connection.cursor()
-    ipfetch.execute("select count(id) from rack_1 where status = 'IP';")
+    ipfetch.execute("select count(id) from inventory where status = 'IP';")
     ipfetch = ipfetch.fetchone()
 
     repairedfetch = mysql.connection.cursor()
-    repairedfetch.execute("select count(id) from rack_1 where status = 'Repaired';")
+    repairedfetch.execute("select count(id) from inventory where status = 'Repaired';")
     repairedfetch = repairedfetch.fetchone()
     
     return render_template("index.html", awpfetch=awpfetch[0], ipfetch=ipfetch[0], repairedfetch=repairedfetch[0], DateOrdered=DateOrdered)
@@ -39,13 +39,16 @@ def form():
 def login():
 
         ServiceOrder = request.form['ServiceOrder']
+        UnitSKU = request.form['UnitSKU']
         PartType = request.form['PartType']
-        SKU = request.form['SKU']
+        Remarks = request.form['Remarks']
+        PartSKU = request.form['SKU']
         Model = request.form['Model']
         Cart = request.form['Cart']
         DateOrdered = today.strftime("%m/%d/%y")
         cursor = mysql.connection.cursor()
-        cursor.execute('''INSERT INTO rack_1 (ServiceOrder, SKU, Model, Cart, DateOrdered, PartType) VALUES(%s,%s,%s,%s,%s,%s)''',(ServiceOrder,SKU,Model,Cart,DateOrdered,PartType))
+        cursor.execute('''INSERT INTO inventory (ServiceOrder, UnitSKU, PartType, Remarks, PartSKU, Model, Cart, DateOrdered)
+         VALUES(%s,%s,%s,%s,%s,%s,%s,%s)''',[ServiceOrder,UnitSKU,PartType,Remarks,PartSKU,Model,Cart,DateOrdered])
         mysql.connection.commit()
         cursor.close()
         flash(ServiceOrder)
@@ -55,7 +58,7 @@ def login():
 def awptable():
     
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT * FROM rack_1 where status = 'AWP' order by id desc;")
+    cursor.execute("SELECT * FROM inventory where status = 'AWP' order by id desc;")
     data = cursor.fetchall()
     return render_template("awptable.html", data=data)
 
@@ -70,7 +73,17 @@ def statuspost():
     RepairID = request.form['RepairID']
     StatusChange = request.form['statuschange']
     cursor = mysql.connection.cursor()
-    cursor.execute('''UPDATE rack_1 SET Status = %s WHERE id = %s''',(StatusChange, RepairID))
+    cursor.execute('''UPDATE inventory SET Status = %s WHERE id = %s''',[StatusChange, RepairID])
+    mysql.connection.commit()
+    cursor.close()
+    return render_template("status.html")
+
+@app.route("/statusdelete", methods=['POST'])
+def statusdelete():
+
+    deleteID = request.form['deleteID']
+    cursor = mysql.connection.cursor()
+    cursor.execute("DELETE FROM inventory WHERE id = %s;",[deleteID])
     mysql.connection.commit()
     cursor.close()
     return render_template("status.html")
@@ -78,7 +91,7 @@ def statuspost():
 @app.route("/ip", methods=['GET'])
 def iptable():
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT * FROM rack_1 where status = 'IP' order by id desc;")
+    cursor.execute("SELECT * FROM inventory where status = 'IP' order by id desc;")
     data = cursor.fetchall()
     return render_template("iptable.html", data=data)
 
@@ -87,16 +100,17 @@ def ippost():
 
     change_to_ip = request.form['change_to_ip']
     cursor = mysql.connection.cursor()
-    cursor.execute("UPDATE rack_1 SET Status = 'IP' WHERE id = %s",[change_to_ip])
+    cursor.execute("UPDATE inventory SET Status = 'IP' WHERE id = %s;",[change_to_ip])
     mysql.connection.commit()
     cursor.close()
+    flash(change_to_ip)
     return redirect(request.referrer)
 
 
 @app.route("/repaired", methods=['GET'])
 def repairedtable():
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT * FROM rack_1 where status = 'Repaired' order by DateOrdered desc;")
+    cursor.execute("SELECT * FROM inventory where status = 'Repaired' order by DateOrdered desc;")
     data = cursor.fetchall()
     return render_template("repairedtable.html", data=data)
 
@@ -105,9 +119,10 @@ def repairedpost():
     DateOrdered = today.strftime("%m/%d/%y")
     change_to_repaired = request.form['change_to_repaired']
     cursor = mysql.connection.cursor()
-    cursor.execute("UPDATE rack_1 SET Status = 'Repaired', Checkout= %s WHERE id = %s",[DateOrdered,change_to_repaired])
+    cursor.execute("UPDATE inventory SET Status = 'Repaired', Checkout= %s WHERE id = %s",[DateOrdered,change_to_repaired])
     mysql.connection.commit()
     cursor.close()
+    flash(change_to_repaired)
     return redirect(request.referrer)
 
 app.run(debug=True)
