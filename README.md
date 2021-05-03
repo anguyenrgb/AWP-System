@@ -17,7 +17,7 @@ The "Unit Check In" screen allows users to check in a unit for repair. It prompt
 
 ## Status Change/Delete
 
-This screen allows users to change statuses of any of the repair id's if necessary. Also, below this form there is a delete record function if the user neds to drop record
+This screen allows users to change statuses of any of the repair id's if necessary. Also, below this form there is a delete record function if the user needs to drop record.
 
 ![status.png](https://github.com/anguyenrgb/AWP-System/blob/6369bcfe335df7dcd34a86200522ce2768729683/AWP%20Screenshot/status.png)
 
