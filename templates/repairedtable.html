@@ -42,7 +42,7 @@
     </div>
 
     <br>
-    <button class="table-btn" onclick="table2csv(this,0)" data-table="MasterTable">Download Table</button>
+    <button class="button" onclick="table2csv(this,0)" data-table="MasterTable">Download Table</button>
     <table id="MasterTable" table class="table table-sm table-hover table-striped table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -57,19 +57,24 @@
         <th>Date Ordered</th>
         <th>Status</th>
         <th>Checkout Date</th>
+        
      </tr>
     </thead>
       <tbody>
         {% for row in data %}
         <tr>
+          
           {% for d in row %}
               <td>{{ d }}</td>
           {% endfor %}
         </tr>
         {% endfor %}
+
+        
       </tbody>
     </table>
     </div>
+    
     
     <script>
       function myFunction() {

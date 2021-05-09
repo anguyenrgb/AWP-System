@@ -7,7 +7,6 @@
   <h1>Status Change</h1>
   
   <form action="/statuspost" class="form-group" method = "POST">
-    
     <div class="form-group">
        <label for='RepairID'>Repair ID:</label>
        <input type="text" class="form-control" name="RepairID" placeholder="Enter Repair ID #">
@@ -21,19 +20,25 @@
         <option value="Repaired">Repaired</option>
       </select>
     </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 
+<h2>Edit Record</h2>
+  
+  <form action="/editpost" class="form-group" method = "POST">
+    <div class="form-group">
+       <label for='editID'>Repair ID:</label>
+       <input type="text" class="form-control" name="editID" placeholder="Enter Repair ID #">
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
 <h2>Delete Record</h2>
-  
   <form action="/statusdelete" class="form-group" method = "POST">
-    
     <div class="form-group">
        <label for='deleteID'>Repair ID:</label>
        <input type="text" class="form-control" name="deleteID" placeholder="Enter Repair ID #">
     </div>
-
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
