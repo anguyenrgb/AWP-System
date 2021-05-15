@@ -24,6 +24,8 @@ This screen allows users to change statuses of any of the repair id's if necessa
 ## Awaiting parts, In Progress, and Repaired
 These screens shows the user the inventory that is either "awaiting parts", "in progress", or "repaired". Every table is searchable by "repair id", "service order", or by date. The "In Progress" screen and "Repaired" screen have a function to either change a repair id status to "IP" or to "Repaired".
 
+Each table has a download function that downloads the present table on screen into a .csv file.
+
 ## Awaiting Parts
 
 ![awp.png](https://github.com/anguyenrgb/AWP-System/blob/6369bcfe335df7dcd34a86200522ce2768729683/AWP%20Screenshot/awp.png)
