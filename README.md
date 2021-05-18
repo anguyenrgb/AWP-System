@@ -21,7 +21,7 @@ This screen allows users to change statuses of any of the repair id's if necessa
 
 The "Edit Unit" prompt asks for the "Repair ID" that needs to be edited. When the desired id is inputed, the user will be redirected to the "Edit Unit" page. There the fields will be automatically filled with the appropriate information, and then the user can edit the needed information. 
 
-![StatusChange.png](https://github.com/anguyenrgb/AWP-System/blob/6369bcfe335df7dcd34a86200522ce2768729683/AWP%20Screenshot/StatusChange.png)
+![StatusChange.png](https://github.com/anguyenrgb/AWP-System/blob/6e53108e5478ee980b4a48c29ebfb2f1f3e7eedf/AWP%20Screenshot/StatusChange.png)
 ![EditRecord.png](https://github.com/anguyenrgb/AWP-System/blob/7dc595d97cd9cd4f79a962f8078f4c5a0e661711/AWP%20Screenshot/EditRecord.png)
 
 
