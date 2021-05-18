@@ -19,10 +19,14 @@ The "Unit Check In" screen allows users to check in a unit for repair. It prompt
 
 This screen allows users to change statuses of any of the repair id's if necessary. Also, below this form there is a delete record function if the user needs to drop record.
 
+The "Edit Unit" prompt asks for the "Repair ID" that needs to be edited. When the desired id is inputed, the user will be redirected to the "Edit Unit" page. There the fields will be automatically filled with the appropriate information, and then the user can edit the needed information. 
+
 ![status.png](https://github.com/anguyenrgb/AWP-System/blob/6369bcfe335df7dcd34a86200522ce2768729683/AWP%20Screenshot/status.png)
 
 ## Awaiting parts, In Progress, and Repaired
 These screens shows the user the inventory that is either "awaiting parts", "in progress", or "repaired". Every table is searchable by "repair id", "service order", or by date. The "In Progress" screen and "Repaired" screen have a function to either change a repair id status to "IP" or to "Repaired".
+
+Each table has a download function that downloads the present table on screen into a .csv file.
 
 ## Awaiting Parts
 
