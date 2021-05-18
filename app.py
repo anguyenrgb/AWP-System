@@ -112,7 +112,6 @@ def repairedtable():
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM inventory where status = 'Repaired' order by DateOrdered desc;")
     data = cursor.fetchall()
-    
     return render_template("repairedtable.html", data=data)
 
 @app.route("/repairedpost", methods=['POST','GET'])
@@ -126,7 +125,7 @@ def repairedpost():
     flash(change_to_repaired)
     return redirect(request.referrer)
 
-@app.route('/editpost', methods=['POST'])
+@app.route('/editpost', methods=['POST','GET'])
 def edit():
     editID = request.form['editID']
 
