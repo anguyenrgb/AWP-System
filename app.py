@@ -110,7 +110,7 @@ def ippost():
 @app.route("/repaired", methods=['GET'])
 def repairedtable():
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT * FROM inventory where status = 'Repaired' order by DateOrdered desc;")
+    cursor.execute("SELECT * FROM inventory where status = 'Repaired' order by Checkout desc;")
     data = cursor.fetchall()
     return render_template("repairedtable.html", data=data)
 
